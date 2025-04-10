@@ -1,1 +1,10 @@
-node_modules
+# Node
+TheWatchShop/node_modules/
+TheWatchShop/.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
