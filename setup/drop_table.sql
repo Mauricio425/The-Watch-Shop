@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS "product_tags";
+DROP TABLE IF EXISTS "tags";
+DROP TABLE IF EXISTS "order_items";
+DROP TABLE IF EXISTS "orders";
+DROP TABLE IF EXISTS "cart_items";
+DROP TABLE IF EXISTS "cart";
+DROP TABLE IF EXISTS "products";
+DROP TABLE IF EXISTS "categories";
+DROP TABLE IF EXISTS "users";
