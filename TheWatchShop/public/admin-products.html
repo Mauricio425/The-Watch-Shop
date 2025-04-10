@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiko</title>
+  <link rel="stylesheet" type="text/css" href="styles/admin.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+  <!--navbar-->
+  <header>
+    <nav>
+      <div class="nav-item">
+        <p id="logo"><a href="index.html">Saiko Watches</a></p>
+      </div>
+      <div class="nav-item">
+        <div class="menu">
+          <a href="admin-upload.html">Bulk Upload</a>
+          <a href="admin-products.html">Product Listings</a>
+          <a href="product-edit.html">Product Edit</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <form action="submit">
+          <input type="search" autofocus required>
+          <i class="fa fa-search"></i>
+          <button onclick="clearInput()" id="search-button">Clear</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <!--navbar end-->
+  <!--CONTENT-->
+
+  <h1>Admin Product Listing</h1>
+
+  <div class="filter">
+    <div class="category-filter">
+      <label for="category-filter">Filter by Category:</label>
+      <select id="category-filter">
+        <option value="">All Categories</option>
+        <option value="cat1">Mens</option>
+        <option value="cat2">Womens</option>
+        <option value="cat3">Unisex</option>
+      </select>
+    </div>
+
+    <div class="filter-search-filter">
+      <label class="filter-search-input">Search:</label>
+      <input id="search-input" type="text" placeholder="e.g. 'Smart Watch'">
+      <button>Search</button>
+    </div>
+    
+
+  </div>
+
+  <!-- Product Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Image Path</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example Row 1 -->
+      <tr>
+        <td>1001</td>
+        <td>Citizen Marvel Avengers Men's Watch</td>
+        <td>A stylish watch for everyday use.</td>
+        <td>Unisex</td>
+        <td>img/citizen-aw2085.jpeg</td>
+        <td>$2,545.00</td>
+        <td class="actions">
+          <button>Delete</button>
+          <button>Archive</button>
+          <button>Edit</button>
+        </td>
+      </tr>
+      <!-- Example Row 2 -->
+      <tr>
+        <td>1002</td>
+        <td>Citizen Men's Watch Drive</td>
+        <td>A stylish watch for everyday use.</td>
+        <td>Mens</td>
+        <td>img/citizen-bm6983.jpeg</td>
+        <td>$275.00</td>
+        <td class="actions">
+          <button>Delete</button>
+          <button>Archive</button>
+          <button>Edit</button>
+        </td>
+      </tr>
+      <!-- Add more products as needed -->
+    </tbody>
+  </table>
+
+  <!-- Add New Product Button -->
+  <button class="add-product-btn">Add New Product</button>
+
+  <!--CONTENT END-->
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#">About Us</a>
+        <a href="admin-products.html">Admin</a>
+      </div>
+      <p id="copyrights">&copy; 2025 Saiko Watches. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

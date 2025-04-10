@@ -1,0 +1,107 @@
+.p-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.p-flex-container .p-flex-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sort-item h2{
+    font-family: 'Prata', serif;
+    font-size: 15px;
+    margin: 0;
+}
+
+.sort-item select{
+    font-family: 'inter', serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.sort-item select option{
+    font-family: 'inter', serif;
+    font-size: 13px;
+}
+
+/* Products (grid and items) */
+#grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    padding: 15px;
+    max-width: 80%;
+    margin: 0 auto; 
+    padding: 30px;
+    gap: 20px;
+}
+
+/* Product Page Styling */
+.product-container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background: #FAF7F0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Deatils page Card */
+.details-card {
+    width: 35%;
+    background: #FAF7F0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #000000;
+}
+
+.product-name{
+    font-family: 'Inter', serif;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-price{
+    font-family: 'Inter', serif;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* View Button */
+.view-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #C7A86B;
+    color: #3a3a3a;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.view-button:hover {
+    background-color: #8B5E3C;
+}

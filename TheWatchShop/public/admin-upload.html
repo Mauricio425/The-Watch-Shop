@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiko - Bulk Upload</title>
+    <!-- Link to your admin CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/admin.css">
+    <!-- Font Awesome (optional) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="nav-item">
+                <p id="logo"><a href="index.html">Saiko Watches</a></p>
+            </div>
+            <div class="nav-item">
+                <div class="menu">
+                    <!-- Make sure the "Bulk Upload" link points to this page -->
+                    <a href="admin-upload.html">Bulk Upload</a>
+                    <a href="admin-products.html">Product Listings</a>
+                    <a href="product-edit.html">Product Edit</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <form action="submit">
+                    <input type="search" autofocus required>
+                    <i class="fa fa-search"></i>
+                    <button onclick="clearInput()" id="search-button">Clear</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar End -->
+
+    <h1>Admin Bulk Upload Page</h1>
+    <p>
+        Use this page to upload product data in <strong>JSON</strong>,
+        <strong>CSV</strong>, or <strong>TXT</strong> format. Ensure the file
+        follows the correct format as shown in the examples below.
+    </p>
+
+    <!-- File Upload Form -->
+    <form action="#" method="post" enctype="multipart/form-data" style="margin-bottom: 20px;">
+        <label for="fileUpload"><strong>Select a file to upload:</strong></label><br>
+        <input type="file" id="fileUpload" name="fileUpload" accept=".json, .csv, .txt" required>
+        <button type="submit" style="margin-left: 10px;">Upload</button>
+    </form>
+
+    <!-- Example File Format Section -->
+    <section>
+        <h2>Example JSON Format</h2>
+        <pre>
+[
+  {
+    "productId": 1001,
+    "name": "Citizen Marvel Avengers Men's Watch",
+    "description": "A stylish watch for everyday use.",
+    "category": "Unisex",
+    "imagePath": "img/citizen-aw2085.jpeg",
+    "price": 2545.00
+  },
+  {
+    "productId": 1002,
+    "name": "Citizen Men's Watch Drive",
+    "description": "A stylish watch for everyday use.",
+    "category": "Mens",
+    "imagePath": "img/citizen-bm6983.jpeg",
+    "price": 275.00
+  }
+]
+    </pre>
+
+        <h2>Example CSV Format</h2>
+        <pre>
+productId,name,description,category,imagePath,price
+1001,"Citizen Marvel Avengers Men's Watch","A stylish watch for everyday use.","Unisex","img/citizen-aw2085.jpeg",2545.00
+1002,"Citizen Men's Watch Drive","A stylish watch for everyday use.","Mens","img/citizen-bm6983.jpeg",275.00
+    </pre>
+
+        <h2>Example TXT Format</h2>
+        <p>
+            For a TXT format, you could simply have one product per line in
+            comma-separated values, or any structured format that your backend
+            parsing logic expects, for example:
+        </p>
+        <pre>
+1001, Citizen Marvel Avengers Men's Watch, A stylish watch for everyday use., Unisex, img/citizen-aw2085.jpeg, 2545.00
+1002, Citizen Men's Watch Drive, A stylish watch for everyday use., Mens, img/citizen-bm6983.jpeg, 275.00
+    </pre>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#">About Us</a>
+                <a href="admin-products.html">Admin</a>
+            </div>
+            <p id="copyrights">
+                &copy; 2025 Saiko Watches. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

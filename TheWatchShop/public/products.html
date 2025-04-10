@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiko</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/products.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="scripts/scripts.js"></script>
+</head>
+
+<body>
+    <!--navbar-->
+    <header>
+        <nav>
+            <div class="nav-item">
+                <p id="logo"><a href="index.html">Saiko Watches</a><span>By Mauricio</span></p>
+            </div>
+            <div class="nav-item">
+                <div class="menu">
+                    <a href="products.html">Products</a>
+                    <a href="#">About</a>
+                    <a href="cart.html">Cart</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <form action="submit">
+                    <input type="search" autofocus required>
+                    <i class="fa fa-search"></i>
+                    <button onclick="clearInput()" id="search-button">Clear</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!--navbar end-->
+    <!--CONTENT-->
+    <div class="p-flex-container">
+        <div class="p-flex-item"> <!--Sort mechanism-->
+            <div class="sort-item">
+                <h2>Price</h2>
+                <select id="sort-price">
+                    <option value="low-high">Low to High</option>
+                    <option value="high-low">High to Low</option>
+                </select>
+            </div>
+            <div class="sort-item">
+                <h2>Color</h2>
+                <select id="sort-color">
+                    <option value="all">All Colors</option>
+                    <option value="black">Black</option>
+                    <option value="silver">Silver</option>
+                    <option value="gold">Gold</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="sort-item">
+                <h2>Sex</h2>
+                <select id="sort-brand">
+                    <option value="all">Unisex</option>
+                    <option value="seiko">Mens</option>
+                    <option value="rolex">Womens</option>
+                </select>
+            </div>
+        </div>
+        <div class="p-flex-item"><!--Display items-->
+            <div id="grid">
+                <!--product-->
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <!--TO BE DELETED-->
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="details.html">
+                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
+                    </a>
+                    <div class="product-info">
+                        <h5 class="product-name">
+                            TSUYOSA Automatic
+                        </h5>
+                        <p class="product-price">$4,500</p>
+                        <a href="details.html" class="view-button">View Product</a>
+                    </div>
+                </div>
+                <!--END TO BE DELTED-->
+            </div>
+
+        </div>
+    </div>
+    <!--CONTENT END-->
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#">About Us</a>
+                <a href="admin-products.html">Admin</a>
+            </div>
+            <p id="copyrights">&copy; 2025 Saiko Watches. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

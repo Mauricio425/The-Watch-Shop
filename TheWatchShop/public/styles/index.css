@@ -1,0 +1,121 @@
+
+
+.banner-text {
+    text-align: center;
+    font-family: 'Prata', serif;
+    font-size: 80px;
+}
+
+.flex-banner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 150px;
+    height: fit-content;
+}
+
+.promotion-section {
+    justify-content: center;
+    gap: 30px;
+}
+
+.text-box {
+    display: flex;
+    margin: 0 10px;
+    width: 40%;
+    height: 350px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #efefefaa;
+    box-shadow: 2px 2px 1px 1px #000000;
+}
+
+.text-box p {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.enhanced-box {
+    background: linear-gradient(to right, #f8f9fa, #e0e0e0);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    max-width: fit-content;
+    height: fit-content;
+}
+
+.enhanced-box:hover {
+    transform: scale(1.02);
+}
+
+/* Promo box, will be a shape later*/
+/* The main banner container */
+.sale-banner {
+    background-color: #000;
+    /* Black background */
+    color: #fff;
+    /* White text */
+    text-align: center;
+    /* Center all text inside */
+    padding: 50px 20px;
+    /* Spacing around the banner */
+    position: relative;
+    /* Allows layering text if desired */
+}
+
+/* Optional top heading (e.g., “Black Friday”) */
+.sale-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Large "SALE" text */
+.sale-main {
+    font-size: 80px;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+/* Optional subheading (e.g., “ONLINE STORE ONLY”) */
+.sale-subheading {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Container for the two promo boxes */
+.promo-deals {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Space between the two promo boxes */
+}
+
+/* Individual promo boxes */
+.promo-box {
+    width: 30%;
+    color: #000;
+    /* Dark text for contrast */
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+/* Style the image itself */
+#banner-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+#banner-image img {
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}

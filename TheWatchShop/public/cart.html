@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiko</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/cart.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="scripts/scripts.js"></script>
+</head>
+
+<body>
+    <!--navbar-->
+    <header>
+        <nav>
+            <div class="nav-item">
+                <p id="logo"><a href="index.html">Saiko Watches</a><span>By Mauricio</span></p>
+            </div>
+            <div class="nav-item">
+                <div class="menu">
+                    <a href="products.html">Products</a>
+                    <a href="#">About</a>
+                    <a href="cart.html">Cart</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <form action="submit">
+                    <input type="search" autofocus required>
+                    <i class="fa fa-search"></i>
+                    <button onclick="clearInput()" id="search-button">Clear</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!--navbar end-->
+    <!--CONTENT-->
+    <div class="cart-container"> <!--Contain everything in a middle section-->
+        <div class="cart-items">
+            <!--Left side, will contain cart items and pretax price of items-->
+
+            <!--Cart item 1-->
+            <div class="cart-item">
+                <div>
+                    <img src="img/citizen-aw2085.jpeg" alt="citizen-aw2085 watch">
+                </div>
+                <div class="cart-item-details">
+                    <div class="item-name">
+                        <p>Citizen Marvel Avengers Men's Watch</p>
+                    </div>
+                    <div class="item-info">
+                        <table>
+                            <tr>     
+                                <th>Quantity</th>
+                                <th>Price of Item</th>
+                                <th>Remove</th>
+                            </tr>
+                            <tr>
+                                <!-- Changed '1' to an editable input -->
+                                <td class="item-quantity">
+                                    <input type="number" value="1" min="1">
+                                </td>
+                                <td class="item-price">$2,545.00</td>
+                                <td class="remove-button"><button>x</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--Cart item 2-->
+            <div class="cart-item">
+                <div>
+                    <img src="img/citizen-bm6983.jpeg" alt="citizen-bm6983 watch">
+                </div>
+                <div class="cart-item-details">
+                    <div class="item-name">
+                        <p>Citizen Men's Watch Drive</p>
+                    </div>
+                    <div class="item-info">
+                        <table>
+                            <tr>                               
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Remove</th>
+                            </tr>
+                            <tr>
+                                <!-- Changed '3' to an editable input -->
+                                <td class="item-quantity">
+                                    <input type="number" value="3" min="1">
+                                </td>
+                                <td class="item-price">$825.00</td>
+                                <td class="remove-button"><button>x</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--Cart item 3-->
+            <div class="cart-item">
+                <div>
+                    <img src="img/tagheuer-war201e.jpeg" alt="tagheuer war201e watch">
+                </div>
+                <div class="cart-item-details">
+                    <div class="item-name">
+                        <p>TAG Heuer Men's Watch Carrera Day-Date</p>
+                    </div>
+                    <div class="item-info">
+                        <table>
+                            <tr>                           
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Remove</th>
+                            </tr>
+                            <tr>
+                                <!-- Changed '1' to an editable input -->
+                                <td class="item-quantity">
+                                    <input type="number" value="1" min="1">
+                                </td>
+                                <td class="item-price">$3,700.00</td>
+                                <td class="remove-button"><button>x</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-checkout"><!--Will contain total price including tax and checkout button-->
+            <div class="checkout-details">
+                <h2>Checkout</h2>
+                <p>Subtotal: $7,070.00</p>
+                <p>Tax (6.75%): $458.66</p>
+                <p>Total: $7,528.66</p>
+            </div>
+            <button class="checkout-button">Checkout</button>
+        </div>
+    </div>
+
+    <!--CONTENT END-->
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#">About Us</a>
+                <a href="admin-products.html">Admin</a>
+            </div>
+            <p id="copyrights">&copy; 2025 Saiko Watches. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

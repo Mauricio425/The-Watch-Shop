@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiko</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="scripts/scripts.js"></script>
+</head>
+
+<body>
+    <!--navbar-->
+    <header>
+        <nav>
+            <div class="nav-item">
+                <p id="logo"><a href="index.html">Saiko Watches</a><span>By Mauricio</span></p>
+            </div>
+            <div class="nav-item">
+                <div class="menu">
+                    <a href="products.html">Products</a>
+                    <a href="#">About</a>
+                    <a href="cart.html">Cart</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <form action="submit">
+                    <input type="search" autofocus required>
+                    <i class="fa fa-search"></i>
+                    <button onclick="clearInput()" id="search-button">Clear</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!--navbar end-->
+    <!--CONTENT-->
+    <div class="sale-banner">
+        <!-- Top heading (e.g., Black Friday) -->
+        <h2 class="sale-heading">BLACK FRIDAY</h2>
+
+        <!-- Large SALE text (optional layered styling in CSS) -->
+        <h1 class="sale-main">SALE</h1>
+
+        <!-- Subheading (e.g., "ONLINE STORE ONLY") -->
+        <div class="sale-subheading">ONLINE STORE ONLY</div>
+
+        <!-- Promo deals side by side -->
+        <div class="promo-deals">
+            <div class="promo-box">
+                <h3>BOGO</h3>
+                <p>Clearance Items</p>
+            </div>
+            <div class="promo-box">
+                <h3>25% OFF</h3>
+                <p>All Watches!</p>
+            </div>
+        </div>
+    </div>
+    <div id="banner-image">
+        <img src="img/Watches.webp" alt="Luxury Watch Banner">
+    </div>
+
+    <div id="description">
+        <h1 class="banner-text">Style, Elegance, Connections</h1>
+        <div class="flex-banner">
+            <div class="text-box enhanced-box">
+                <p>
+                    Blending precision engineering with timeless design, We are Saiko watches.
+                    We create statement pieces that go beyond just telling time. Crafted for those who
+                    dare to stand out.
+                </p>
+            </div>
+            <div class="text-box enhanced-box">
+                <p>
+                    Discover a curated collection of precision-crafted timepieces designed for elegance,
+                    durability, and innovation. Whether you're looking for a luxury statement, a rugged
+                    adventure watch, or a sleek everyday companion, we have something for you.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--CONTENT END-->
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#">About Us</a>
+                <a href="admin-products.html">Admin</a>
+            </div>
+            <p id="copyrights">&copy; 2025 Saiko Watches. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

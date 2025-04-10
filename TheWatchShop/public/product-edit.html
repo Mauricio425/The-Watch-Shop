@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiko - Edit Product</title>
+  <!-- Link to your main CSS file -->
+  <link rel="stylesheet" type="text/css" href="styles/admin.css">
+  <!-- Font Awesome (optional) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="nav-item">
+        <p id="logo"><a href="index.html">Saiko Watches</a></p>
+      </div>
+      <div class="nav-item">
+        <div class="menu">
+          <a href="admin-upload.html">Bulk Upload</a>
+          <a href="admin-products.html">Product Listings</a>
+          <a href="product-edit.html">Product Edit</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <form action="submit">
+          <input type="search" autofocus required>
+          <i class="fa fa-search"></i>
+          <button onclick="clearInput()" id="search-button">Clear</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <!-- Navbar End -->
+
+  <h1>Admin Product Edit</h1>
+
+  <!-- Edit Form -->
+  <form action="#" method="post" class="edit-form">
+    <!-- Non-Editable Field: Product ID -->
+    <div class="form-group">
+      <label for="productID">Product ID (Non-Editable)</label>
+      <input type="text" id="productID" name="productID" value="1001" readonly class="form-control">
+    </div>
+
+    <!-- Editable Fields -->
+    <!-- Name -->
+    <div class="form-group">
+      <label for="productName">Name</label>
+      <input type="text" id="productName" name="productName" value="Citizen Marvel Avengers Men's Watch" required
+        class="form-control">
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="productDescription">Description</label>
+      <textarea id="productDescription" name="productDescription" rows="3" required
+        class="form-control">A stylish watch for everyday use.</textarea>
+    </div>
+
+    <!-- Category (ID or Name) -->
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" value="Unisex" required class="form-control">
+    </div>
+
+    <!-- Image Path -->
+    <div class="form-group">
+      <label for="imagePath">Image Path</label>
+      <input type="text" id="imagePath" name="imagePath" value="img/citizen-aw2085.jpeg" required
+        class="form-control">
+    </div>
+
+    <!-- Price -->
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" step="0.01" value="2545.00" required class="form-control">
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" class="submit-button">Save Changes</button>
+      <a href="admin-products.html" class="cancel-link">Cancel</a>
+    </div>
+  </form>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#">About Us</a>
+        <a href="admin-products.html">Admin</a>
+      </div>
+      <p id="copyrights">
+        &copy; 2025 Saiko Watches. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

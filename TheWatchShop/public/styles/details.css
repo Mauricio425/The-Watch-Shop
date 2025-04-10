@@ -1,0 +1,118 @@
+
+
+/* Product Container Adjustment */
+.product-details-container {
+    width: 100%;
+    max-width: 1100px; /* controls overall max-width */
+    margin: 0 auto; /* ensures centered alignment */
+    padding: 50px 20px;
+    box-sizing: border-box; /* ensure padding doesn't affect total width */
+}
+
+/* Product Card Centering */
+.product-card-details {
+    width: 100%; /* ensures full responsiveness */
+    max-width: 900px;
+    margin: 0 auto; /* explicitly centers card within container */
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.product-img {
+    width: 50%;
+    object-fit: cover;
+    border-right: 1px solid #eee;
+}
+
+.product-info {
+    padding: 25px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-title {
+    font-family: 'Prata', serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #8B5E3C;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+    background-color: #C7A86B;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #8B5E3C;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-card-details {
+        flex-direction: column;
+    }
+
+    .product-img, .product-info {
+        width: 100%;
+    }
+
+    .product-img {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+/* Tags Section Styling */
+.tags-section {
+    margin-top: 20px;
+}
+
+.tags-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tag:hover {
+    background-color: #C7A86B;
+    color: #fff;
+}
+
