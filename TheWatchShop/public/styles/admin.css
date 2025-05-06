@@ -1,4 +1,4 @@
-/* Basic Reset and Global Styles */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +15,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Header and Navigation */
+
 header {
   background-color: #333;
   color: #fff;
@@ -67,7 +67,6 @@ header nav form button {
   cursor: pointer;
 }
 
-/* Filter Section */
 .filter {
   display: flex;
   justify-content: space-between;
@@ -100,7 +99,7 @@ header nav form button {
   border: none;
 }
 
-/* Table Styling */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -118,7 +117,6 @@ th {
   background-color: #f0f0f0;
 }
 
-/* Actions Buttons */
 .actions button {
   margin-right: 5px;
   padding: 5px 10px;
@@ -130,7 +128,6 @@ th {
   opacity: 0.8;
 }
 
-/* Add New Product Button */
 .add-product-btn {
   display: block;
   margin: 0 auto 20px auto;
@@ -142,7 +139,6 @@ th {
   cursor: pointer;
 }
 
-/* Footer Styling */
 .site-footer {
   background-color: #333;
   color: #fff;
@@ -163,7 +159,6 @@ th {
   text-decoration: underline;
 }
 
-/* Admin Product Edit Form Styles */
 .edit-form {
   max-width: 600px;
   margin: 0 auto;

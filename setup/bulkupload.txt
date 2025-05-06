@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Omega Seamaster",
+    "description": "Professional dive watch",
+    "category": "Luxury",
+    "imagePath": "img/omega_seamaster.jpg",
+    "price": 5499.99,
+    "color": "Silver",
+    "sex": "Mens"
+  },
+  {
+    "name": "Fitbit Charge",
+    "description": "Health‑tracking smartwatch",
+    "category": "Smartwatch",
+    "imagePath": "img/fitbit_charge.jpg",
+    "price": 149.99,
+    "color": "Black",
+    "sex": "Unisex"
+  }
+]

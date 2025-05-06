@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<!--
-  Name: Mauricio Garcia-Paez
-  Date: 02.07.2025
-  CSC 372-01
-
-  Project: Product Pages Prototype
-  details page
--->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saiko Watches</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/details.css">
+    <title>Order History – Saiko Watches</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/orders.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="scripts/scripts.js"></script>
 </head>
 
 <body>
-    <!--navbar-->
+    <!-- Navbar -->
     <header>
         <nav>
             <div class="nav-item">
@@ -50,45 +42,24 @@
     <!--navbar end-->
 
     <!-- Main Content -->
-    <div class="product-details-container">
-        <div class="product-card-details">
-            <img src="img/TSUYOSA.webp" alt="TSUYOSA Automatic" class="product-img">
-            <div class="product-info">
-                <h2 class="product-title">TSUYOSA Automatic</h2>
-                <p class="product-price">$14,000</p>
-                <p class="product-description">
-                    Neutra strikes a sophisticated balance of form and function. This gold-tone stainless steel
-                    chronograph features a bold 44mm case with a sleek black sunray dial.
-                </p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-
-                <!-- Tags Section -->
-                <div class="tags-section">
-                    <h3 class="tags-title">Tags:</h3>
-                    <div class="tags">
-                        <span class="tag">Automatic</span>
-                        <span class="tag">Chronograph</span>
-                        <span class="tag">Gold</span>
-                        <span class="tag">Luxury</span>
-                    </div>
-                </div>
-
-
-            </div>
+    <main class="orders-container">
+        <h1>Your Orders</h1>
+        <div id="orders-list">
+            <!-- Order cards go herehere -->
         </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
             <a href="#">About Us</a>
-            <a href="#">Contact</a>
+            <a href="admin-products.html">Admin</a>
         </div>
         <p>&copy; 2025 Saiko Watches. All rights reserved.</p>
     </footer>
-    <script src="scripts/details.js" defer></script>
+
+    <script src="scripts/orders.js" defer></script>
 </body>
 
 </html>

@@ -22,32 +22,30 @@
             <div class="nav-item">
                 <div class="menu">
                     <a href="products.html">Products</a>
-                    <a href="#">About</a>
+                    <a href="orders.html">Orders</a>
                     <a href="cart.html">Cart</a>
                 </div>
             </div>
             <div class="nav-item">
-                <form action="submit">
-                    <input type="search" autofocus required>
+                <form id="search-form">
+                    <input type="search" name="q" placeholder="Search products…" autofocus required>
                     <i class="fa fa-search"></i>
-                    <button onclick="clearInput()" id="search-button">Clear</button>
+                    <!-- note type="button" so it never submits the form -->
+                    <button type="button" onclick="clearInput()" id="search-button">
+                        Clear
+                    </button>
                 </form>
+
             </div>
         </nav>
     </header>
     <!--navbar end-->
     <!--CONTENT-->
     <div class="sale-banner">
-        <!-- Top heading (e.g., Black Friday) -->
+
         <h2 class="sale-heading">BLACK FRIDAY</h2>
-
-        <!-- Large SALE text (optional layered styling in CSS) -->
         <h1 class="sale-main">SALE</h1>
-
-        <!-- Subheading (e.g., "ONLINE STORE ONLY") -->
         <div class="sale-subheading">ONLINE STORE ONLY</div>
-
-        <!-- Promo deals side by side -->
         <div class="promo-deals">
             <div class="promo-box">
                 <h3>BOGO</h3>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiko - Edit Product</title>
+  <!-- Link to your main CSS file -->
+  <link rel="stylesheet" type="text/css" href="styles/admin.css">
+  <!-- Font Awesome (optional) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="nav-item">
+        <p id="logo"><a href="index.html">Saiko Watches</a></p>
+      </div>
+      <div class="nav-item">
+        <div class="menu">
+          <a href="admin-upload.html">Bulk Upload</a>
+          <a href="admin-products.html">Product Listings</a>
+          <a href="product-edit.html">Product Edit</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <form action="submit">
+          <input type="search" autofocus required>
+          <i class="fa fa-search"></i>
+          <button onclick="clearInput()" id="search-button">Clear</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <!-- Navbar End -->
+
+  <h1>Admin Product Edit</h1>
+
+  <main class="admin-edit-product">
+    <h1>Edit Product</h1>
+    <form id="edit-form">
+      <label>
+        Product ID:
+        <input type="text" name="product_id" readonly>
+      </label>
+    
+      <label>
+        Name:
+        <input type="text" name="name" required>
+      </label>
+    
+      <label>
+        Description:
+        <textarea name="description" required></textarea>
+      </label>
+    
+      <label>
+        Category ID:
+        <input type="number" name="category_id" required>
+      </label>
+    
+      <label>
+        Image Path:
+        <input type="text" name="image_path">
+      </label>
+    
+      <label>
+        Price:
+        <input type="number" name="price" step="0.01" required>
+      </label>
+    
+      <label>
+        Color:
+        <input type="text" name="color">
+      </label>
+    
+      <label>
+        Sex:
+        <select name="sex">
+          <option>Mens</option>
+          <option>Womens</option>
+          <option>Unisex</option>
+        </select>
+      </label>
+    
+      <label>
+        <input type="checkbox" name="active" checked>
+        Active
+      </label>
+    
+      <button type="submit">Save</button>
+      <a href="admin-products.html">Cancel</a>
+    
+      <div id="edit-result" style="margin-top:1em;"></div>
+    </form>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#">About Us</a>
+        <a href="admin-products.html">Admin</a>
+      </div>
+      <p id="copyrights">
+        &copy; 2025 Saiko Watches. All rights reserved.
+      </p>
+    </div>
+  </footer>
+  <script src="scripts/admin-product-edit.js" defer></script>
+</body>
+
+</html>

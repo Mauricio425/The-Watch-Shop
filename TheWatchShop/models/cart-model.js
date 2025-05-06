@@ -1,112 +1,146 @@
 const db = require('../db/db');
 
+
 const getOrCreateCartForUser = (userId) => {
-    let cart = db.prepare("SELECT * FROM cart WHERE user_id = ? AND status = 'new'").get(userId);
+  let cart = db.prepare(
+    "SELECT * FROM cart WHERE user_id = ? AND status = 'new'"
+  ).get(userId);
 
-    if (!cart) {
-        const insert = db.prepare("INSERT INTO cart (user_id, status) VALUES (?, 'new')");
-        const result = insert.run(userId);
-        cart = { cart_id: result.lastInsertRowid, user_id: userId, status: 'new' };
-    }
-
+  if (cart) {
     return cart;
+  }
+
+  const existing = db.prepare(
+    "SELECT * FROM cart WHERE user_id = ?"
+  ).get(userId);
+
+  if (existing) {
+
+    db.prepare(
+      "UPDATE cart SET status = 'new', created_at = CURRENT_TIMESTAMP WHERE cart_id = ?"
+    ).run(existing.cart_id);
+    return { ...existing, status: 'new' };
+  }
+
+
+  const insert = db.prepare(
+    "INSERT INTO cart (user_id, status) VALUES (?, 'new')"
+  );
+  const result = insert.run(userId);
+  return { cart_id: result.lastInsertRowid, user_id: userId, status: 'new' };
 };
 
+
 const addToCart = (userId, productId, quantity) => {
-    const cart = getOrCreateCartForUser(userId);
+  const cart = getOrCreateCartForUser(userId);
+  const existingItem = db.prepare(
+    "SELECT * FROM cart_items WHERE cart_id = ? AND product_id = ?"
+  ).get(cart.cart_id, productId);
 
-    const existingItem = db.prepare(`
-    SELECT * FROM cart_items WHERE cart_id = ? AND product_id = ?
-  `).get(cart.cart_id, productId);
+  if (existingItem) {
+    db.prepare(
+      "UPDATE cart_items SET quantity = quantity + ? WHERE cart_id = ? AND product_id = ?"
+    ).run(quantity, cart.cart_id, productId);
+  } else {
+    db.prepare(
+      "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (?, ?, ?)"
+    ).run(cart.cart_id, productId, quantity);
+  }
 
-    if (existingItem) {
-        // Update quantity
-        db.prepare(`
-      UPDATE cart_items SET quantity = quantity + ?
-      WHERE cart_id = ? AND product_id = ?
-    `).run(quantity, cart.cart_id, productId);
-    } else {
-        // Insert new cart item
-        db.prepare(`
-      INSERT INTO cart_items (cart_id, product_id, quantity)
-      VALUES (?, ?, ?)
-    `).run(cart.cart_id, productId, quantity);
-    }
-
-    return { message: 'Product added to cart', cart_id: cart.cart_id };
+  return { message: 'Product added to cart', cart_id: cart.cart_id };
 };
 
 const getCartItems = (userId) => {
-    const cart = db.prepare("SELECT * FROM cart WHERE user_id = ? AND status = 'new'").get(userId);
+  const cart = db.prepare(
+    "SELECT * FROM cart WHERE user_id = ? AND status = 'new'"
+  ).get(userId);
+  if (!cart) return [];
 
-    if (!cart) return [];
-
-    const stmt = db.prepare(`
-        SELECT 
-          products.product_id,
-          products.name,
-          products.price,
-          products.image_path,
-          cart_items.quantity,
-          (products.price * cart_items.quantity) AS total
-        FROM cart_items
-        JOIN products ON cart_items.product_id = products.product_id
-        WHERE cart_items.cart_id = ?
-      `);
-
-    return stmt.all(cart.cart_id);
-
+  return db.prepare(
+    `SELECT
+       p.product_id,
+       p.name,
+       p.price,
+       p.image_path,
+       ci.quantity,
+       (p.price * ci.quantity) AS total
+     FROM cart_items ci
+     JOIN products p ON ci.product_id = p.product_id
+     WHERE ci.cart_id = ?`
+  ).all(cart.cart_id);
 };
 
+
 const removeFromCart = (userId, productId) => {
-    const cart = db.prepare("SELECT * FROM cart WHERE user_id = ? AND status = 'new'").get(userId);
-    if (!cart) throw new Error('Cart not found');
+  const cart = db.prepare(
+    "SELECT * FROM cart WHERE user_id = ? AND status = 'new'"
+  ).get(userId);
+  if (!cart) throw new Error('Cart not found');
 
-    const stmt = db.prepare(`
-      DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?
-    `);
+  const existingItem = db.prepare(
+    "SELECT * FROM cart_items WHERE cart_id = ? AND product_id = ?"
+  ).get(cart.cart_id, productId);
+  if (!existingItem) {
+    return { deleted: false };
+  }
 
-    const result = stmt.run(cart.cart_id, productId);
+  if (existingItem.quantity > 1) {
+
+    db.prepare(
+      "UPDATE cart_items SET quantity = quantity - 1 WHERE cart_id = ? AND product_id = ?"
+    ).run(cart.cart_id, productId);
+    return { message: 'Quantity decremented', product_id: productId, quantity: existingItem.quantity - 1 };
+  } else {
+    // Quantity is 1, remove the item
+    const result = db.prepare(
+      "DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?"
+    ).run(cart.cart_id, productId);
     return { deleted: result.changes > 0 };
+  }
 };
 
 const checkoutCartFinal = (userId, address) => {
-  const cart = db.prepare("SELECT * FROM cart WHERE user_id = ? AND status = 'new'").get(userId);
+  const cart = db.prepare(
+    "SELECT * FROM cart WHERE user_id = ? AND status = 'new'"
+  ).get(userId);
   if (!cart) throw new Error("No active cart");
 
-  const items = db.prepare("SELECT * FROM cart_items WHERE cart_id = ?").all(cart.cart_id);
+  const items = db.prepare(
+    "SELECT * FROM cart_items WHERE cart_id = ?"
+  ).all(cart.cart_id);
   if (items.length === 0) throw new Error("Cart is empty");
 
-  // 1. Insert order
-  const insertOrder = db.prepare(`
-    INSERT INTO orders (user_id, address)
-    VALUES (?, ?)
-  `);
+  const insertOrder = db.prepare(
+    "INSERT INTO orders (user_id, address) VALUES (?, ?)"
+  );
   const orderResult = insertOrder.run(userId, address);
   const orderId = orderResult.lastInsertRowid;
 
-  // 2. Insert order items
-  const insertItem = db.prepare(`
-    INSERT INTO order_items (order_id, product_id, quantity)
-    VALUES (?, ?, ?)
-  `);
-
-  const insertAll = db.transaction((items) => {
-    for (const item of items) {
-      insertItem.run(orderId, item.product_id, item.quantity);
-    }
+  const insertItem = db.prepare(
+    "INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)"
+  );
+  const insertAll = db.transaction(list => {
+    list.forEach(item => insertItem.run(orderId, item.product_id, item.quantity));
   });
-
   insertAll(items);
 
-  // 3. Update cart status
-  db.prepare("UPDATE cart SET status = 'purchased' WHERE cart_id = ?").run(cart.cart_id);
+
+  db.prepare(
+    "UPDATE cart SET status = 'purchased' WHERE cart_id = ?"
+  ).run(cart.cart_id);
+
+
+  db.prepare(
+    "DELETE FROM cart_items WHERE cart_id = ?"
+  ).run(cart.cart_id);
 
   return { message: 'Order placed!', order_id: orderId };
 };
 
-
-
-
-
-module.exports = { addToCart, getCartItems, getOrCreateCartForUser, removeFromCart, checkoutCartFinal };
+module.exports = {
+  getOrCreateCartForUser,
+  addToCart,
+  getCartItems,
+  removeFromCart,
+  checkoutCartFinal
+};

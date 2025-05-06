@@ -1,6 +1,5 @@
 const Cart = require('../models/cart-model');
 
-// Simulate user_id = 1 (you can upgrade later!)
 const addToCart = (req, res) => {
     try {
       console.log("Received body:", req.body);
@@ -20,11 +19,11 @@ const addToCart = (req, res) => {
   
   const getCart = (req, res) => {
     try {
-      const items = Cart.getCartItems(1); // Hardcoded user ID
-      console.log('Cart items:', items); // 🪵 Check what's returned
+      const items = Cart.getCartItems(1); 
+      console.log('Cart items:', items);
       res.json(items);
     } catch (err) {
-      console.error("Cart fetch error:", err); // 🪵 See what broke
+      console.error("Cart fetch error:", err); 
       res.status(500).json({ error: 'Failed to fetch cart', details: err.message });
     }
   };
@@ -32,7 +31,7 @@ const addToCart = (req, res) => {
   const removeFromCart = (req, res) => {
     try {
       const productId = parseInt(req.params.product_id);
-      const result = Cart.removeFromCart(1, productId); // user_id = 1
+      const result = Cart.removeFromCart(1, productId); 
       if (result.deleted) {
         res.json({ message: 'Item removed from cart' });
       } else {
@@ -46,7 +45,7 @@ const addToCart = (req, res) => {
 
   const getCheckoutPreview = (req, res) => {
     try {
-      const items = Cart.getCartItems(1); // Simulate logged-in user
+      const items = Cart.getCartItems(1); 
       res.json({
         user_id: 1,
         items: items
@@ -64,7 +63,7 @@ const addToCart = (req, res) => {
         return res.status(400).json({ error: 'Missing address' });
       }
   
-      const result = Cart.checkoutCartFinal(1, address); // Hardcoded user_id
+      const result = Cart.checkoutCartFinal(1, address); 
       res.json(result);
     } catch (err) {
       console.error('Checkout error:', err);

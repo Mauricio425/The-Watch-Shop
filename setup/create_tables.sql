@@ -18,14 +18,17 @@ CREATE TABLE "categories" (
 );
 
 CREATE TABLE "products" (
-  "product_id" INTEGER,
-  "name" TEXT NOT NULL,
-  "price" DECIMAL NOT NULL,
-  "description" TEXT,
-  "image_path" VARCHAR,
-  "category_id" INTEGER,
-  PRIMARY KEY("product_id" AUTOINCREMENT),
-  FOREIGN KEY("category_id") REFERENCES "categories"("category_id")
+"product_id" INTEGER,
+"name" TEXT NOT NULL,
+"price" DECIMAL NOT NULL,
+"description" TEXT,
+"image_path" VARCHAR,
+"category_id" INTEGER,
+"color" TEXT,
+"sex" TEXT NOT NULL CHECK ("sex" IN ('Mens','Womens','Unisex')),
+"active" INTEGER NOT NULL DEFAULT 1,
+PRIMARY KEY("product_id" AUTOINCREMENT),
+FOREIGN KEY("category_id") REFERENCES "categories"("category_id")
 );
 
 CREATE TABLE "cart" (

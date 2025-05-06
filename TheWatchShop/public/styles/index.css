@@ -1,5 +1,3 @@
-
-
 .banner-text {
     text-align: center;
     font-family: 'Prata', serif;
@@ -52,28 +50,28 @@
     transform: scale(1.02);
 }
 
-/* Promo box, will be a shape later*/
+
 /* The main banner container */
 .sale-banner {
     background-color: #000;
-    /* Black background */
+
     color: #fff;
-    /* White text */
+
     text-align: center;
-    /* Center all text inside */
+
     padding: 50px 20px;
-    /* Spacing around the banner */
+
     position: relative;
-    /* Allows layering text if desired */
+
 }
 
-/* Optional top heading (e.g., “Black Friday”) */
+
 .sale-heading {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-/* Large "SALE" text */
+
 .sale-main {
     font-size: 80px;
     letter-spacing: 5px;
@@ -81,32 +79,30 @@
     text-transform: uppercase;
 }
 
-/* Optional subheading (e.g., “ONLINE STORE ONLY”) */
+
 .sale-subheading {
     font-size: 14px;
     margin-bottom: 30px;
 }
 
-/* Container for the two promo boxes */
+
 .promo-deals {
     display: flex;
     justify-content: center;
     gap: 20px;
-    /* Space between the two promo boxes */
 }
 
-/* Individual promo boxes */
 .promo-box {
     width: 30%;
     color: #000;
-    /* Dark text for contrast */
+
     padding: 15px 30px;
     border-radius: 10px;
     font-weight: bold;
 }
 
 
-/* Style the image itself */
+
 #banner-image {
     width: 100%;
     display: flex;

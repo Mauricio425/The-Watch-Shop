@@ -3,16 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saiko</title>
-  <link rel="stylesheet" type="text/css" href="styles/styles.css">
-  <link rel="stylesheet" type="text/css" href="styles/cart.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Checkout – Saiko Watches</title>
+  <link rel="stylesheet" href="styles/checkout.css">
+  <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="scripts/scripts.js"></script>
 </head>
 
 <body>
+
   <!--navbar-->
   <header>
     <nav>
@@ -40,35 +41,30 @@
     </nav>
   </header>
   <!--navbar end-->
-  <!--CONTENT-->
-  <div class="cart-container">
-    <div class="cart-items">
-      <div id="cart-items-container"></div>
-    </div>
-    <div class="cart-checkout">
-      <div class="checkout-details"></div>
-      <button class="checkout-button" onclick="window.location.href='checkout.html'">
-        Checkout
-      </button>
+  <main class="checkout-container">
+    <h1>Checkout</h1>
 
-    </div>
-  </div>
+    <section id="preview">
 
+    </section>
 
-  <!--CONTENT END-->
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="#">About Us</a>
-        <a href="admin-products.html">Admin</a>
-      </div>
-      <p id="copyrights">&copy; 2025 Saiko Watches. All rights reserved.</p>
+    <section id="address-form">
+      <h2>Shipping Address</h2>
+      <form id="checkout-form">
+        <label>
+          Address:
+          <input type="text" name="address" required>
+        </label>
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+
+    <div id="confirmation" style="display:none;">
+      <!-- Show success message here -->
     </div>
-  </footer>
-  <script src="scripts/carts.js" defer></script>
+  </main>
+
+  <script src="scripts/checkout.js" defer></script>
 </body>
 
 </html>

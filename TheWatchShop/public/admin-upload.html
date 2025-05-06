@@ -21,7 +21,6 @@
             </div>
             <div class="nav-item">
                 <div class="menu">
-                    <!-- Make sure the "Bulk Upload" link points to this page -->
                     <a href="admin-upload.html">Bulk Upload</a>
                     <a href="admin-products.html">Product Listings</a>
                     <a href="product-edit.html">Product Edit</a>
@@ -46,11 +45,13 @@
     </p>
 
     <!-- File Upload Form -->
-    <form action="#" method="post" enctype="multipart/form-data" style="margin-bottom: 20px;">
+    <form id="bulk-upload-form" enctype="multipart/form-data" style="margin-bottom:20px;">
         <label for="fileUpload"><strong>Select a file to upload:</strong></label><br>
-        <input type="file" id="fileUpload" name="fileUpload" accept=".json, .csv, .txt" required>
-        <button type="submit" style="margin-left: 10px;">Upload</button>
+        <input type="file" id="fileUpload" name="fileUpload" accept=".json,.csv,.txt" required>
+        <button type="submit" id="upload-btn" style="margin-left:10px;">Upload</button>
     </form>
+
+    <div id="upload-result" style="margin-top:1em;"></div>
 
     <!-- Example File Format Section -->
     <section>
@@ -109,6 +110,7 @@ productId,name,description,category,imagePath,price
             </p>
         </div>
     </footer>
+    <script src="scripts/admin-upload.js" defer></script>
 </body>
 
 </html>

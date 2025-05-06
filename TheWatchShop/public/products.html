@@ -22,16 +22,26 @@
             <div class="nav-item">
                 <div class="menu">
                     <a href="products.html">Products</a>
-                    <a href="#">About</a>
+                    <a href="orders.html">Orders</a>
                     <a href="cart.html">Cart</a>
                 </div>
             </div>
             <div class="nav-item">
-                <form action="submit">
-                    <input type="search" autofocus required>
+                <form id="search-form">
+                    <input
+                      type="search"
+                      name="q"
+                      placeholder="Search products…"
+                      autofocus
+                      required
+                    >
                     <i class="fa fa-search"></i>
-                    <button onclick="clearInput()" id="search-button">Clear</button>
-                </form>
+                    <!-- note type="button" so it never submits the form -->
+                    <button type="button" onclick="clearInput()" id="search-button">
+                      Clear
+                    </button>
+                  </form>
+                  
             </div>
         </nav>
     </header>
@@ -68,92 +78,7 @@
         <div class="p-flex-item"><!--Display items-->
             <div id="grid">
                 <!--product-->
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <!--TO BE DELETED-->
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <a href="details.html">
-                        <img src="img/TSUYOSA.webp" class="product-image" alt="watch">
-                    </a>
-                    <div class="product-info">
-                        <h5 class="product-name">
-                            TSUYOSA Automatic
-                        </h5>
-                        <p class="product-price">$4,500</p>
-                        <a href="details.html" class="view-button">View Product</a>
-                    </div>
-                </div>
-                <!--END TO BE DELTED-->
+                
             </div>
 
         </div>
@@ -171,6 +96,8 @@
             <p id="copyrights">&copy; 2025 Saiko Watches. All rights reserved.</p>
         </div>
     </footer>
+    <script src="scripts/products.js" defer></script>
+
 </body>
 
 </html>

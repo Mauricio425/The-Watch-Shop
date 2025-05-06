@@ -1,16 +1,19 @@
-// models/product-model.js
-const db = require('../db/db'); //needed to access the databse
+
+const db = require('../db/db'); 
 const { get } = require('../routes/product-routes');
 
-const getAllProducts = () => {
-  const stmt = db.prepare('SELECT * FROM products');
-  const products = stmt.all(); // returns an array of product objects
-  return products;
-};
+const getAllProducts = () =>
+  db.prepare(`SELECT * FROM products WHERE active = 1`).all();
+
+
+const getAllProductsAdmin = () =>
+  db.prepare(`SELECT product_id, name, description, category_id, image_path, price, color, sex, active
+              FROM products
+              ORDER BY product_id`).all();
 
 const getProductById = (id) => {
   const stmt = db.prepare('SELECT * FROM products WHERE product_id = ?');
-  const product = stmt.get(id); // returns a single product object or undefined if not found
+  const product = stmt.get(id); 
   return product;
 }
 
@@ -45,5 +48,54 @@ const getProductsByCategory = (categoryName) => {
   return stmt.all(categoryName);
 };
 
+const createProduct = ({ name, description, category_id, price, image_path, color, sex }) => {
+  const stmt = db.prepare(`
+    INSERT INTO products
+      (name, description, category_id, price, image_path, color, sex)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `);
+  return stmt.run(name, description, category_id, price, image_path, color, sex);
+};
 
-module.exports = { getAllProducts, getProductById, searchForProducts, getProductsByCategory };
+const updateProduct = (id, { name, description, category_id, price, image_path, color, sex, active }) => {
+  const stmt = db.prepare(`
+    UPDATE products
+    SET name = ?,
+        description = ?,
+        category_id = ?,
+        price = ?,
+        image_path = ?,
+        color = ?,
+        sex = ?,
+        active = ?
+    WHERE product_id = ?
+  `);
+  return stmt.run(name, description, category_id, price, image_path, color, sex, active, id);
+};
+
+/**
+ *
+ * @param {number} id
+ * @returns {boolean}
+ */
+function deactivateProduct(id) {
+  const result = db.prepare(`
+    UPDATE products
+    SET active = 0
+    WHERE product_id = ?
+  `).run(id);
+  return result.changes > 0;
+}
+
+function activateProduct(id) {
+  const result = db.prepare(`
+    UPDATE products
+    SET active = 1
+    WHERE product_id = ?
+  `).run(id);
+  return result.changes > 0;
+}
+
+
+
+module.exports = { getAllProducts, getAllProductsAdmin, getProductById, searchForProducts, getProductsByCategory, createProduct, updateProduct,deactivateProduct, activateProduct };
